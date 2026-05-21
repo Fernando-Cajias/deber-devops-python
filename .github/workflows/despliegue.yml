@@ -1,0 +1,21 @@
+name: CI/CD - Hola Mundo Python
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  ejecutar-tarea:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Paso 1 - Clonar codigo
+        uses: actions/checkout@v4
+
+      - name: Paso 2 - Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Paso 3 - Ejecutar Script
+        run: python app.py
